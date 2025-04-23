@@ -21,7 +21,7 @@ void run_task(Task* task) {
     int rand_val = rand() % 10;
     if (rand_val < 3) {  // 30% chance
         task->deadline_miss_count++;
-        printf("⚠️  Task %d missed its deadline!\n", task->id);
+        printf("⚠  Task %d missed its deadline!\n", task->id);
     }
 }
 
@@ -30,7 +30,7 @@ void adaptive_scheduler(Task tasks[], int n) {
         if (tasks[i].deadline_miss_count >= 2 && tasks[i].priority > 1) {
             tasks[i].priority--;  
             tasks[i].deadline_miss_count = 0;
-            printf("🔁 Task %d priority increased to %d (due to deadline misses)\n",
+            printf(" Task %d priority increased to %d (due to deadline misses)\n",
                    tasks[i].id, tasks[i].priority);
         }
     }
